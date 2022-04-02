@@ -10,16 +10,18 @@
   </head>
   <body>
     <header class="page-title">My Holdings</header>
-    <form id="get-new-ticker">
-      <input
-        id="new-ticker"
-        type="text"
-        required
-        placeholder="Write a Ticker and Press Enter"
-        maxlength="10"
-      />
-    </form>
-    <main id="watch-list"></main>
+    <main>
+      <form id="get-new-ticker">
+        <input
+          id="new-ticker"
+          type="text"
+          required
+          placeholder="Write a Ticker and Press Enter"
+          maxlength="10"
+        />
+      </form>
+      <div id="watch-list" class="portfolio-list"></div>
+    </main>
 
     <script src="./js/api.js"></script>
     <script src="./js/polygon.js"></script>
