@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
     <link rel="stylesheet" href="./style/style.css" />
-    <title>Document</title>
+    <title>api-practice</title>
   </head>
   <body>
-    <h1>This is index page.</h1>
-    <div class="stock-list">
-      <span id="stock"></span>
-    </div>
+    <header class="page-title">My Holdings</header>
+    <form id="get-new-ticker">
+      <input
+        id="new-ticker"
+        type="text"
+        required
+        placeholder="Write a Ticker and Press Enter"
+        maxlength="10"
+      />
+    </form>
+    <main id="watch-list"></main>
 
     <script src="./js/api.js"></script>
     <script src="./js/polygon.js"></script>

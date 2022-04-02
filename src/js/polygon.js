@@ -1,16 +1,25 @@
-const TICKER = "AMZN";
-
 const stock = document.querySelector("#stock");
-const newTicker = document.createElement("span");
-const url = `https://api.polygon.io/v2/aggs/ticker/${TICKER}/range/1/day/2022-03-31/2022-03-31?apiKey=${API_KEY}`;
+const watchList = document.querySelector("#watch-list");
+const getTicker = document.querySelector("#get-new-ticker");
 
+function handleGetTickerSubmit(item) {
+  item.preventDefault();
+  const newTicker = getTicker.querySelector("#new-ticker").value.toUpperCase();
+  console.log(newTicker);
+}
+
+function handlewatchList(data) {
+  const holding = document.createElement("span");
+  holding.innerText = `${data.ticker}`;
+  console.log(data);
+  watchList.appendChild(holding);
+}
+
+const url = `https://api.polygon.io/v2/aggs/ticker/AMZN/range/1/day/2022-03-31/2022-03-31?apiKey=${API_KEY}`;
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
-    handleStocks(data);
+    handlewatchList(data);
   });
 
-function handleStocks(data) {
-  stock.innerText = `${data.ticker}`;
-  console.log(data);
-}
+getTicker.addEventListener("submit", handleGetTickerSubmit);
